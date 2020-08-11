@@ -33,6 +33,7 @@ const getSectionLocation = sections => {
     }
 }
 
+window.addEventListener('scroll', getSectionLocation(sections));
 
 //Scroll to anchors
 const links = document.querySelectorAll('.nav-link');
