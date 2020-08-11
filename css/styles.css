@@ -1,0 +1,29 @@
+body {
+    background: linear-gradient(rgba(74, 10, 177, 0.8), rgba(74, 10, 177, 0.6)) ;
+    color: whitesmoke;
+    text-align: center;
+}
+
+#title {
+    font-size: 4rem;
+    padding: 30px;
+}
+
+.section {
+    border-top: 2px solid whitesmoke;
+}
+
+.section h2 {
+    font-size: 2rem;
+}
+
+.footer {
+    border-top: 2px solid whitesmoke;
+    padding: 1rem;
+    text-align: left;
+}
+
+.active {
+    background: white;
+    color: black;
+}
