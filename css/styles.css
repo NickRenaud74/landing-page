@@ -14,12 +14,13 @@ body {
 #navbar {
     list-style: none;
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: start;
     align-items: center;
     border-bottom: 2px solid whitesmoke;
     padding: 30px;
     background-color:rgb(21, 7, 43, 0.8);
-    height: 50px;
+    height: auto;
     position: fixed;
     width: 100%;
     top: 0;
@@ -31,10 +32,11 @@ body {
     display: inline-block;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1rem;
     background-image: linear-gradient(#4d6199 0%, #44188b 100%);
     border-radius: 5px;
     padding: 10px;
+    margin: 10px;
     color: whitesmoke;
 }
 
@@ -52,7 +54,7 @@ body {
 }
 
 .section h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-decoration: underline;
 }
 
@@ -69,3 +71,30 @@ body {
 .hide {
     display: none;
 }
+
+@media(max-width: 800px) {
+    #home {
+        font-size: 3rem;
+    }
+
+    .section {
+        margin: 5vh;
+        font-size: 0.9rem;
+    }
+
+    #navbar {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: start;
+        position: fixed;
+        width: 100%;
+        height: auto;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        margin: 10px;
+    }
+}
+

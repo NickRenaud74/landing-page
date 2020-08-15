@@ -17,12 +17,12 @@ const createNavBar = () => {
 }
 createNavBar(sections);
 
-// Make sections ACTIVE
+// Make sections ACTIVE when in viewport
 const makeActive = () => {
     for (let section of sections) {
         const location = section.getBoundingClientRect();
         const navRect = document.querySelector('#navbar').getBoundingClientRect();
-        if (location.top >= navRect.bottom && location.bottom <= window.innerHeight) {
+        if (location.top >= -5 && location.bottom <= window.innerHeight) {
             section.classList.add('active');
         }
         else {
@@ -30,7 +30,6 @@ const makeActive = () => {
         }
     }
 }
-
 
 window.addEventListener('scroll', () => {
     makeActive()
@@ -46,7 +45,7 @@ const smoothScroll = () => {
             rect = document.getElementById(`${sectionId}`);
             rect.scrollIntoView({
                 behavior: 'smooth',
-                block: 'center'
+                block: 'start'
             });
         });
     }
@@ -58,6 +57,7 @@ smoothScroll();
 const hideHomeButton = () => {
     const body = document.querySelector('body');
     const homeButton = document.querySelector('.home');
+    homeButton.classList.toggle('hide');
     window.addEventListener('scroll', (event) => {
         if (window.scrollY >= body.offsetHeight / 2) {
             homeButton.classList.remove('hide');
@@ -68,6 +68,22 @@ const hideHomeButton = () => {
     })
 }
 hideHomeButton();
+
+//Hide NavBar on scroll
+let timer = null;
+const hideNav = () => {
+    window.addEventListener('scroll', (event) => {
+        if (timer !== null) {
+            clearTimeout(timer);
+            nav.style.display = 'flex';
+        }
+        timer = setTimeout(() => {
+            nav.style.display = 'none';
+        }, 2000);
+    })
+}
+
+hideNav();
 
 const end = performance.now();
 console.log(end - start);
