@@ -9,3 +9,7 @@ A single **Landing Page** with several sections and multiple javascript function
 * Highlighting an active section whenever it is in the viewport.
 * A smooth scroll function that will scroll to whichever section was clicked in the Navbar rather than jumping to the section.
 * A return to top button that will only appear on the Navbar if the user has scrolled more than halfway down the page.
+
+### Sources
+
+images/landingPageHero.jpeg - https://www.pexels.com/photo/photo-of-supernova-in-galaxy-3805983/
