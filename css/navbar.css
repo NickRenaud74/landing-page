@@ -1,0 +1,38 @@
+#navbar {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    border-bottom: 2px solid whitesmoke;
+    padding: 30px;
+    background-color:rgba(3, 2, 49, 0.5);
+    height: auto;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+.nav-link {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    background-image: linear-gradient(#2f5bd4 0%, #44188b 100%);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    color: whitesmoke;
+}
+
+.nav-link:visited {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.nav-link:hover {
+    font-weight: bolder;
+    color: black;
+}

@@ -1,8 +1,9 @@
 
-// Global Variables
+// Define global variables
 const sections = document.querySelectorAll('section');
 const nav = document.querySelector('#navbar');
-const start = performance.now();
+// timer variable for hideNav() function
+let timer = null;
 
 // Create dynamic NavBar
 const createNavBar = () => {
@@ -12,35 +13,37 @@ const createNavBar = () => {
         const menuItem = section.dataset.nav;
         navMenu.innerHTML = `<a href="#${section.id}" class="nav-link ${section.id}">${menuItem}</a>`;
         fragment.appendChild(navMenu);
-    }
+    };
     nav.appendChild(fragment);
-}
+};
+
 createNavBar(sections);
 
-// Make sections ACTIVE when in viewport
+// Give sections a class of active when in viewport
 const makeActive = () => {
     for (let section of sections) {
         const location = section.getBoundingClientRect();
         const navRect = document.querySelector('#navbar').getBoundingClientRect();
-        if (location.top >= -5 && location.bottom <= window.innerHeight) {
+        if (location.top >= 0 && location.bottom <= window.innerHeight) {
             section.classList.add('active');
         }
         else {
             section.classList.remove('active');
         }
-    }
-}
+    };
+};
 
 window.addEventListener('scroll', () => {
-    makeActive()
+    makeActive();
 });
 
-//Scroll to anchors
+//Scroll smoothly to anchors
 const smoothScroll = () => {
     const links = document.querySelectorAll('.nav-link');
     for (let link of links) {
         link.addEventListener('click', (event) => {
             event.preventDefault();
+            //Remove # from href attribute
             const sectionId = link.getAttribute('href').slice(1);
             rect = document.getElementById(`${sectionId}`);
             rect.scrollIntoView({
@@ -48,16 +51,17 @@ const smoothScroll = () => {
                 block: 'start'
             });
         });
-    }
-}
+    };
+};
 
 smoothScroll();
 
-//Return to top button
+//Show home button when page is scrolled more than halfway
 const hideHomeButton = () => {
     const body = document.querySelector('body');
     const homeButton = document.querySelector('.home');
-    homeButton.classList.toggle('hide');
+    // add class .hide on initial load
+    homeButton.classList.add('hide');
     window.addEventListener('scroll', (event) => {
         if (window.scrollY >= body.offsetHeight / 2) {
             homeButton.classList.remove('hide');
@@ -65,12 +69,12 @@ const hideHomeButton = () => {
         else {
             homeButton.classList.add('hide');
         }
-    })
-}
+    });
+};
+
 hideHomeButton();
 
-//Hide NavBar on scroll
-let timer = null;
+//Hide NavBar after 2 second delay when user stops scrolling
 const hideNav = () => {
     window.addEventListener('scroll', (event) => {
         if (timer !== null) {
@@ -80,11 +84,7 @@ const hideNav = () => {
         timer = setTimeout(() => {
             nav.style.display = 'none';
         }, 2000);
-    })
-}
+    });
+};
 
 hideNav();
-
-const end = performance.now();
-console.log(end - start);
-console.log(document.body.offsetHeight)

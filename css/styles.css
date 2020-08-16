@@ -1,5 +1,10 @@
+@import url("footer.css");
+@import url("navbar.css");
+
+
+/* Main */
 body {
-    background: linear-gradient(rgba(33, 5, 77, 0.8), rgba(74, 10, 177, 0.6)) ;
+    background: linear-gradient(rgba(7, 7, 7, 0.897), rgb(31, 30, 30)) ;
     color: whitesmoke;
     text-align: center;
     padding-top: 70px;
@@ -7,48 +12,15 @@ body {
 }
 
 #home {
-    font-size: 5rem;
-    padding: 30px;
+    font-size: 6rem;
+    padding: 20px;
+    background-image: url("../images/landingPageHero.jpeg");
+    background-size: cover;
+    text-align: center;
 }
 
-#navbar {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    align-items: center;
-    border-bottom: 2px solid whitesmoke;
-    padding: 30px;
-    background-color:rgb(21, 7, 43, 0.8);
-    height: auto;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    margin: 0;
-}
 
-.nav-link {
-    display: inline-block;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-    background-image: linear-gradient(#4d6199 0%, #44188b 100%);
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-    color: whitesmoke;
-}
-
-.nav-link:visited {
-    text-decoration: none;
-    color: whitesmoke;
-} 
-.nav-link:hover {
-    font-weight: bolder;
-    color: black;
-}
-
+/* Sections */
 .section {
     margin: 15vh;
 }
@@ -58,20 +30,18 @@ body {
     text-decoration: underline;
 }
 
-.footer {
-    border-top: 2px solid whitesmoke;
-    padding: 1rem;
-    text-align: left;
-}
 
+/* Dynamic Features */
 .active {
-    color: black;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .hide {
     display: none;
 }
 
+
+/* Small screens */
 @media(max-width: 800px) {
     #home {
         font-size: 3rem;
